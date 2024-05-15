@@ -101,6 +101,10 @@ def str_to_bool(s="false"):
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"Poject": "ML recommender System FastAPI"}
+
 # @app.get("/feature/")
 @app.get("/feature/{user_id}")
 async def read_histories(user_id: int):
