@@ -118,10 +118,10 @@ async def read_item(user_id: int, returnMetadata: Union[str, None] = None):
     if returnMetadata == None:
         returnMetadata = 'false'
 
-    print("returnMetadata = ", type(returnMetadata), returnMetadata)
+    # print("returnMetadata = ", type(returnMetadata), returnMetadata)
 
     returnMetadata = str_to_bool(returnMetadata)
-    print("returnMetadata = ", type(returnMetadata), returnMetadata)
+    # print("returnMetadata = ", type(returnMetadata), returnMetadata)
 
     n_recommended_movie = 10
     movies_watched_by_user = ratings_df[ratings_df.userId == user_id]
