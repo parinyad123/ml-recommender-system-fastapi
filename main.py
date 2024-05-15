@@ -116,6 +116,8 @@ async def read_histories(user_id: int):
 @app.get("/recommendations/")
 async def read_item(user_id: int = 0, returnMetadata: Optional[str] = None):
 
+    print("returnMetadata = ", type(returnMetadata), returnMetadata)
+
     # returnMetadata = str_to_bool(returnMetadata)
 
     n_recommended_movie = 10
