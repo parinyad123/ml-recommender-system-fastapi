@@ -7,6 +7,7 @@ import pandas as pd
 
 from typing import Union
 from fastapi import FastAPI
+from typing import Optional
 
 # EMBEDDING_SIZE = 50
 model_file = 'recommander_system_model.keras'
@@ -89,14 +90,14 @@ ratings_df["movie"] = ratings_df["movieId"].map(movie2movie_encoded)
 
 movie_df = pd.read_csv(movies_csv)
 
-def str_to_bool(s):
-    truthy_values = {"true", "1", "yes"}
-    # falsy_values = {"false", "0", "no"}
-    s_lower = s.lower()
-    if s_lower in truthy_values:
-        return True
-    else:
-        return False
+# def str_to_bool(s):
+#     truthy_values = {"true", "1", "yes"}
+#     # falsy_values = {"false", "0", "no"}
+#     s_lower = s.lower()
+#     if s_lower in truthy_values:
+#         return True
+#     else:
+#         return False
 
 app = FastAPI()
 
@@ -113,9 +114,9 @@ async def read_histories(user_id: int):
 
 
 @app.get("/recommendations/")
-async def read_item(user_id: int = 0, returnMetadata: str = "False"):
+async def read_item(user_id: int = 0, returnMetadata: Optional[str] = None):
 
-    returnMetadata = str_to_bool(returnMetadata)
+    # returnMetadata = str_to_bool(returnMetadata)
 
     n_recommended_movie = 10
     movies_watched_by_user = ratings_df[ratings_df.userId == user_id]
