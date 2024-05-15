@@ -101,7 +101,8 @@ def str_to_bool(s="false"):
 
 app = FastAPI()
 
-@app.get("/feature/")
+# @app.get("/feature/")
+@app.get("/feature/{user_id}")
 async def read_histories(user_id: int):
     movies_watched_by_user = ratings_df[ratings_df.userId == user_id]
     return {"feature": [
@@ -111,9 +112,11 @@ async def read_histories(user_id: int):
     ]}
 
 
-@app.get("/recommendations/")
-async def read_item(user_id: int = 0, returnMetadata: Optional[str] = "false"):
-# async def read_item(user_id: int = 0, returnMetadata: Union[str, None] = None):
+@app.get("/recommendations/{user_id}")
+# async def read_item(user_id: int = 0, returnMetadata: Optional[str] = "false"):
+async def read_item(user_id: int, returnMetadata: Union[str, None] = None):
+    if returnMetadata == None:
+        returnMetadata = 'false'
 
     print("returnMetadata = ", type(returnMetadata), returnMetadata)
 
