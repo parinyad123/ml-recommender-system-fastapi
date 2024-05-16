@@ -103,7 +103,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Poject": "ML recommender System FastAPI"}
+    return {"Project": "ML recommender System FastAPI"}
 
 # @app.get("/feature/")
 @app.get("/feature/{user_id}")
