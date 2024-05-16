@@ -1,14 +1,15 @@
 # Recommender System
 Recommendation systems are algorithms and techniques used in information filtering and decision making to suggest items or actions to users. They are widely employed in various domains, including e-commerce, streaming services, social media platforms, and more. The primary goal of recommendation systems is to predict the "preference" or "likeliness" of a user toward a particular item or action, based on their past behavior, preferences, and other contextual information.
 
-Our recommender system employs Collaborative Filtering with [the MovieLens small dataset](https://github.com/lukkiddd-tdg/movielens-small) to suggest movies to users. Within the MovieLens ratings dataset, users have provided ratings for various movies. Our objective is to forecast ratings for movies that a user hasn't viewed yet. By predicting these ratings, we can identify movies with the highest anticipated ratings, subsequently recommending them to the user.
+The recommender system employs Collaborative Filtering with [the MovieLens small dataset](https://github.com/lukkiddd-tdg/movielens-small) to suggest movies to users. Within the MovieLens ratings dataset, users have provided ratings for various movies. Our objective is to forecast ratings for movies that a user hasn't viewed yet. By predicting these ratings, we can identify movies with the highest anticipated ratings, subsequently recommending them to the user.
 
 
 # Model Development
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/parinyad123/ml-recommender-system-fastapi/blob/main/Develop_Model.ipynb)
-Our recommender system model was developed in **Colab** using the popular *Keras* library. The training data comprises encoded `userId` and `movieId`, with normalized `ratings` as the target, all sourced from the [ratings.csv](https://raw.githubusercontent.com/lukkiddd-tdg/movielens-small/main/ratings.csv) file of the MovieLens small datasets.
 
-After training the model, it was saved with the .keras extension as *recommender_system_model.keras*. For predictions, we input the `userId` of the user and the `movieId` of movies the user has not yet watched. The model predicts the `ratings` for each movie, then the system sorts these predicted ratings from highest to lowest, displaying the top 10 movies with the highest ratings as recommendations.
+The recommender system model was developed in **Colab** using the popular *Keras* library. The training data comprises encoded `userId` and `movieId`, with normalized `ratings` as the target, all sourced from the [ratings.csv](https://raw.githubusercontent.com/lukkiddd-tdg/movielens-small/main/ratings.csv) file of the MovieLens small datasets.
+
+After training the model, it was saved with the .keras extension as *recommender_system_model.keras*. For predictions, I input the `userId` of the user and the `movieId` of movies the user has not yet watched. The model predicts the `ratings` for each movie, then the system sorts these predicted ratings from highest to lowest, displaying the top 10 movies with the highest ratings as recommendations.
 
 # Movie Recommendation System API
 
@@ -102,7 +103,7 @@ While the model already includes L2 regularization on the embeddings, we might e
 Experiment with different learning rates for the optimizer. Learning rate tuning can significantly impact the training process and the final performance of the model. 
 
 #### 4. Hyperparameter Tuning
-Perform systematic hyperparameter tuning using techniques like grid search, random search, or Bayesian optimization to find the optimal combination of hyperparameters for your model.
+Perform systematic hyperparameter tuning using techniques like grid search, random search, or Bayesian optimization to find the optimal combination of hyperparameters for the model.
 
 #### 5.Increase Feature
 Increasing both the timing and genres of movies, the model can provide timely and relevant recommendations tailored to users' current interests, thereby improving the overall quality of recommendations.
